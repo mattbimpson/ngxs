@@ -1,4 +1,4 @@
-import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { State, Action, StateContext, Selector, Select } from '@ngxs/store';
 import { Todo } from '../../model/todo/todo';
 import { AddTodo, DeleteTodo } from '../actions/todo-actions';
 import { Injectable } from '@angular/core';
@@ -20,11 +20,26 @@ export class TodoState {
     return state.todos;
   }
 
+  @Selector()
+  static getDetail(state: TodoStateModel) {
+    return (id: number) => {
+      const todo = state.todos.find(x => x.id === id);
+      if (!todo) {
+        return state;
+      }
+
+      return todo.detail;
+    };
+  }
+
   @Action(AddTodo)
   add({getState, patchState}: StateContext<TodoStateModel>, { payload }: AddTodo) {
     const state = getState();
     patchState({
-      todos: [ ...state.todos, payload]
+      todos: [
+        ...state.todos,
+        { ...payload, id: state.todos.length ? state.todos[state.todos.length - 1].id + 1 : 0 }
+      ]
     });
   }
 
