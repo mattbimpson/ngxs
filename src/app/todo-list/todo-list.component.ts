@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Todo } from '../model/todo/todo';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { DeleteTodo } from '../store/actions/todo-actions';
 import { TodoState } from '../store/state/todo-state';
 
