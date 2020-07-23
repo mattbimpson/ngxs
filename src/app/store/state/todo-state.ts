@@ -25,7 +25,7 @@ export class TodoState {
     return (id: number) => {
       const todo = state.todos.find(x => x.id === id);
       if (!todo) {
-        return state;
+        return null;
       }
 
       return todo.detail;
