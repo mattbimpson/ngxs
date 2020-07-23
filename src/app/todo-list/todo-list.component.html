@@ -5,10 +5,10 @@
   </li>
 </ul>
 <br/>
-<div *ngIf="detail">
+<div *ngIf="detail$ | async">
   <p>Detail for selected todo:<p>
-  <p>{{ detail.dueDate }}</p>
-  <p>{{ detail.moreInfo }}</p>
+  <p>{{ (detail$ | async)?.dueDate }}</p>
+  <p>{{ (detail$ | async)?.moreInfo }}</p>
 </div>
 <div *ngIf="(todos$ | async).length">
   <input type="text" [(ngModel)]="deleteIndex" placeholder="Enter index of todo to remove" />

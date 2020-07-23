@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Todo } from '../model/todo/todo';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { DeleteTodo } from '../store/actions/todo-actions';
 import { TodoState } from '../store/state/todo-state';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-list',
@@ -14,10 +13,10 @@ import { map } from 'rxjs/operators';
 export class TodoListComponent {
 
   deleteIndex: number;
+  selectedTodoId: number;
 
   @Select(TodoState.getTodos) todos$: Observable<Todo[]>;
-  detailObservable$: Observable<any>;
-  detail: any;
+  detail$: Observable<any>;
 
   constructor(private store: Store) {}
 
@@ -27,10 +26,6 @@ export class TodoListComponent {
   }
 
   showDetail(id: number) {
-    this.detail = null;
-    this.detailObservable$ = this.store
-      .select(TodoState.getDetail)
-      .pipe(map(x => x(id)));
-    this.detailObservable$.subscribe(x => this.detail = x);
+    this.detail$ = this.store.select(TodoState.getDetailByTodoId(id));
   }
 }
