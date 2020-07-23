@@ -1,4 +1,4 @@
-import { State, Action, StateContext, Selector, Select } from '@ngxs/store';
+import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Todo } from '../../model/todo/todo';
 import { AddTodo, DeleteTodo } from '../actions/todo-actions';
 import { Injectable } from '@angular/core';
