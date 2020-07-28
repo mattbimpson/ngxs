@@ -1,15 +1,8 @@
 <p>todos:</p>
-<ul>
-  <li *ngFor="let todo of todos$ | async" (click)="showDetail(todo.id)">
-    {{ todo.id }} | {{ todo.name }} | {{ todo.description }}
-  </li>
-</ul>
-<br/>
-<div *ngIf="detail$ | async">
-  <p>Detail for selected todo:<p>
-  <p>{{ (detail$ | async)?.dueDate }}</p>
-  <p>{{ (detail$ | async)?.moreInfo }}</p>
+<div *ngFor="let todo of todos$ | async">
+  <app-todo-item [todo]="todo"></app-todo-item>
 </div>
+<br/>
 <div *ngIf="(todos$ | async).length">
   <input type="text" [(ngModel)]="deleteIndex" placeholder="Enter index of todo to remove" />
   <button (click)="deleteTodo()">Delete Todo</button>

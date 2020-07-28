@@ -9,12 +9,14 @@ import { NgxsModule } from '@ngxs/store';
 import { TodoState } from './store/state/todo-state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoCreateComponent
+    TodoCreateComponent,
+    TodoItemComponent
   ],
   imports: [
     FormsModule,

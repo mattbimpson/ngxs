@@ -13,10 +13,10 @@ import { TodoState } from '../store/state/todo-state';
 export class TodoListComponent {
 
   deleteIndex: number;
-  selectedTodoId: number;
+  // selectedTodoId: number;
 
   @Select(TodoState.getTodos) todos$: Observable<Todo[]>;
-  detail$: Observable<any>;
+  // detail$: Observable<any>;
 
   constructor(private store: Store) {}
 
@@ -25,7 +25,7 @@ export class TodoListComponent {
     this.deleteIndex = null;
   }
 
-  showDetail(id: number) {
-    this.detail$ = this.store.select(TodoState.getDetailByTodoId(id));
-  }
+  // showDetail(id: number) {
+  //   this.detail$ = this.store.select(TodoState.getDetailByTodoId(id));
+  // }
 }
