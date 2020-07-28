@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../model/todo/todo';
-import { Select } from '@ngxs/store';
+import { Store } from '@ngxs/store';
 import { TodoState } from '../store/state/todo-state';
 import { Observable } from 'rxjs';
 
@@ -12,11 +12,11 @@ import { Observable } from 'rxjs';
 export class TodoItemComponent implements OnInit {
 
   @Input() todo: Todo;
-  // @Select(TodoState.getDetailByTodoId(0)) detail$: Observable<any>;
+  detail$: Observable<any>;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
-    debugger;
+    this.detail$ = this.store.select(TodoState.getDetailByTodoId(this.todo.id));
   }
 }
