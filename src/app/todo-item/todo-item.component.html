@@ -1,10 +1,10 @@
 <div todo-container>
-  <p>id: {{ todo.id }}</p>
-  <p>name: {{ todo.name }}</p>
-  <p>description: {{ todo.description }}</p>
+  <p><span bold>id:</span> {{ todo.id }}</p>
+  <p><span bold>name:</span> {{ todo.name }}</p>
+  <p><span bold>description:</span> {{ todo.description }}</p>
 
   <div *ngIf="detail$ | async">
-    <p>Detail for selected todo:<p>
+    <p bold>Detail for selected todo:<p>
     <p>{{ (detail$ | async)?.dueDate }}</p>
     <p>{{ (detail$ | async)?.moreInfo }}</p>
   </div>

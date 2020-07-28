@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class TodoItemComponent implements OnInit {
 
   @Input() todo: Todo;
-  // @Select(TodoState.getDetailByTodoId(this.todo.id || null)) detail$: Observable<any>;
+  // @Select(TodoState.getDetailByTodoId(0)) detail$: Observable<any>;
 
   constructor() { }
 
