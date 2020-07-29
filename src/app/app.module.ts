@@ -10,6 +10,7 @@ import { TodoState } from './store/state/todo-state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { UserState } from './store/state/user-state';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
     FormsModule,
     BrowserModule,
     NgxsModule.forRoot([
-      TodoState
+      TodoState,
+      UserState
     ]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule

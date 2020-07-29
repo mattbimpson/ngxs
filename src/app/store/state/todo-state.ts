@@ -57,7 +57,7 @@ export class TodoState {
   @Action(DeleteTodo)
   remove({getState, patchState}: StateContext<TodoStateModel>, { payload }: DeleteTodo) {
     patchState({
-      todos: getState().todos.filter((_, index) => index !== Number(payload))
+      todos: getState().todos.filter(item => item.id !== Number(payload))
     });
   }
 }

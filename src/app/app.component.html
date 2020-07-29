@@ -4,6 +4,10 @@
     Welcome to {{ title }}!
   </h1>
 </div>
+<div user-container *ngIf="user$ | async">
+  <p>{{ (user$ | async)?.name }}</p>
+  <p>{{ (user$ | async)?.lastLoggedIn }}</p>
+</div>
 <br/>
 <app-todo-list></app-todo-list>
 <br/>

@@ -4,6 +4,6 @@
 </div>
 <br/>
 <div *ngIf="(todos$ | async).length">
-  <input type="text" [(ngModel)]="deleteIndex" placeholder="Enter index of todo to remove" />
+  <input type="text" [(ngModel)]="deleteId" placeholder="Enter id of todo to remove" />
   <button (click)="deleteTodo()">Delete Todo</button>
 </div>
